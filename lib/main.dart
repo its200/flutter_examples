@@ -37,15 +37,15 @@ class MyHomePage extends StatelessWidget {
           items: const <BottomNavigationBarItem>[
             const BottomNavigationBarItem(
               icon: const Icon(CupertinoIcons.home),
-              title: const Text('Home'),
+              title: const Text('Basic'),
             ),
             const BottomNavigationBarItem(
               icon: const Icon(CupertinoIcons.conversation_bubble),
-              title: const Text('Support'),
+              title: const Text('UI'),
             ),
             const BottomNavigationBarItem(
               icon: const Icon(CupertinoIcons.profile_circled),
-              title: const Text('Profile'),
+              title: const Text('Other'),
             ),
           ],
         ),
