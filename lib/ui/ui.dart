@@ -9,7 +9,7 @@ class UIDemo extends StatelessWidget {
       child: new CustomScrollView(
         slivers: <Widget>[
           CupertinoSliverNavigationBar(
-            largeTitle: Text('Colors'),
+            largeTitle: Text('UI Demos'),
             trailing: ExitButton(),
           ),
           new SliverPadding(
@@ -28,7 +28,6 @@ class UIDemo extends StatelessWidget {
                     (BuildContext context, int index) {
                   return new Tab1RowItem(
                     index: index,
-                    lastItem: index == 49,
                   );
                 },
                 childCount: 50,
@@ -42,10 +41,9 @@ class UIDemo extends StatelessWidget {
 }
 
 class Tab1RowItem extends StatelessWidget {
-  const Tab1RowItem({this.index, this.lastItem});
+  const Tab1RowItem({this.index});
 
   final int index;
-  final bool lastItem;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +55,6 @@ class Tab1RowItem extends StatelessWidget {
           new Tab1ItemPage(
             index: index,
           ),
-          fullscreenDialog: true
         ));
       },
       child: new SafeArea(
@@ -115,10 +112,6 @@ class Tab1RowItem extends StatelessWidget {
       ),
     );
 
-    if (lastItem) {
-      return row;
-    }
-
     return new Column(
       children: <Widget>[
         row,
@@ -137,14 +130,84 @@ class Tab1ItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
-        Navigator.of(context).pop();
-      },
-      child: Center(child: Text("hello world", style: TextStyle(color: Colors.white),),),
+    return Scaffold(
+      body: CupertinoPageScaffold(
+          navigationBar: CupertinoNavigationBar(
+            middle: Text("Hello Flutter"),
+            trailing: IconButton(
+              icon: Icon(Icons.more_horiz),
+              onPressed: () {
+                showModalBottomSheet<Null>(context: context, builder: (BuildContext context) {
+                  return new Container(
+                      height: 180.0,
+                      child: new Padding(
+                          padding: const EdgeInsets.all(32.0),
+                          child: ListView(
+                            children: <Widget>[
+                              ListTile(
+                                title: Text("Hello World"),
+                                onTap: () {
+                                  showDemoDialog<String>(
+                                    context: context,
+                                    child: new CupertinoAlertDialog(
+                                        content: const Text('Discard draft?'),
+                                        actions: <Widget>[
+                                          new CupertinoDialogAction(
+                                              child: const Text('Discard'),
+                                              isDestructiveAction: true,
+                                              onPressed: () { Navigator.pop(context, 'Discard'); }
+                                          ),
+                                          new CupertinoDialogAction(
+                                              child: const Text('Cancel'),
+                                              isDefaultAction: true,
+                                              onPressed: () { Navigator.pop(context, 'Cancel'); }
+                                          ),
+                                        ]
+                                    ),
+                                  );
+                                },
+                              ),
+                              ListTile(
+                                title: Text("Hello Again"),
+                                onTap: () {
+                                  showDemoDialog<String>(
+                                    context: context,
+                                    child: new CupertinoAlertDialog(
+                                        content: const Text('Discard draft?'),
+                                        actions: <Widget>[
+                                          new CupertinoDialogAction(
+                                              child: const Text('Confirm'),
+                                              isDestructiveAction: true,
+                                              onPressed: () { Navigator.pop(context, 'Discard'); }
+                                          ),
+                                          new CupertinoDialogAction(
+                                              child: const Text('Cancel'),
+                                              isDefaultAction: true,
+                                              onPressed: () { Navigator.pop(context, 'Cancel'); }
+                                          ),
+                                        ]
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                      )
+                  );
+                });
+              },),
+          ),
+          child: Center(child: Text("Hello World"),)),
     );
   }
 
+  void showDemoDialog<T>({ BuildContext context, Widget child }) {
+    showDialog<T>(
+      context: context,
+      child: child,
+      barrierDismissible: false,
+    );
+  }
 }
 
 class ExitButton extends StatelessWidget {
