@@ -18,8 +18,14 @@ final List<RowItem> uiItems = <RowItem> [
   RowItem(
     name: "Cupertino Bottom Modal",
     description: "bottom modal with Curpertino widget",
-    routeName: HelloWorld.routeName,
+    routeName: CupertinoBottomModal.routeName,
     buildRoute: (BuildContext context) => CupertinoBottomModal(),
+  ),
+  RowItem(
+    name: "Layout",
+    description: "a set of layout demos",
+    routeName: LayoutDemo.routeName,
+    buildRoute: (BuildContext context) => LayoutDemo(),
   ),
 ];
 
