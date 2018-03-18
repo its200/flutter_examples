@@ -4,13 +4,26 @@ import 'package:flutter/cupertino.dart';
 import 'basic/basic.dart';
 import 'ui/ui.dart';
 import 'other/other.dart';
+import 'demos.dart';
+import 'model/all_models.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
+    final Map<String, WidgetBuilder> _kRoutes = <String, WidgetBuilder>{};
+    for (RowItem item in kAllDemos) {
+      // For a different example of how to set up an application routing table
+      // using named routes, consider the example in the Navigator class documentation:
+      // https://docs.flutter.io/flutter/widgets/Navigator-class.html
+      _kRoutes[item.routeName] = (BuildContext context) {
+        return item.buildRoute(context);
+      };
+    }
+
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
@@ -25,6 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: new MyHomePage(),
+      routes: _kRoutes
     );
   }
 }
