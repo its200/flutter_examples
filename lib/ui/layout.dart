@@ -56,8 +56,7 @@ class BasicLayout extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.star, color: Colors.red,),
-          Text("99")
+          FavoriteWidget()
         ],
       ),
     );
@@ -119,5 +118,47 @@ class BasicLayout extends StatelessWidget {
       ],
     );
   }
+}
 
+class FavoriteWidget extends StatefulWidget {
+  @override
+  _FavoriteWidgetState createState() => new _FavoriteWidgetState();
+}
+
+class _FavoriteWidgetState extends State<StatefulWidget> {
+  bool _isFavorited = true;
+  int _favoriteCount = 99;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(0.0),
+          child: IconButton(
+            icon: (_isFavorited ? Icon(Icons.favorite) : Icon(Icons.favorite_border)),
+            color: Colors.red,
+            onPressed: _toggleFavorited,
+          ),
+        ),
+        SizedBox(
+          width: 18.0,
+          child: Text("$_favoriteCount"),
+        )
+      ],
+    );
+  }
+
+  _toggleFavorited() {
+    setState(() {
+      if (_isFavorited) {
+        _favoriteCount -= 1;
+        _isFavorited = false;
+      } else {
+        _favoriteCount += 1;
+        _isFavorited = true;
+      }
+    });
+  }
 }
