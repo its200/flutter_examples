@@ -18,6 +18,12 @@ final List<RowItem> basicItems = <RowItem> [
     routeName: FormDemo.routeName,
     buildRoute: (BuildContext context) => FormDemo(),
   ),
+  RowItem(
+    name: "Overscroll with Http Request",
+    description: "A pull to refresh widget with http response to render page",
+    routeName: OverscrollHttp.routeName,
+    buildRoute: (BuildContext context) => OverscrollHttp(),
+  ),
 ];
 
 final List<RowItem> uiItems = <RowItem> [
