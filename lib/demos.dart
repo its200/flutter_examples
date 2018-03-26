@@ -39,6 +39,12 @@ final List<RowItem> uiItems = <RowItem> [
     routeName: LayoutDemo.routeName,
     buildRoute: (BuildContext context) => LayoutDemo(),
   ),
+  RowItem(
+    name: "Bottom Icon Badge",
+    description: "a badge showing right top of an icon",
+    routeName: BottomIconBadge.routeName,
+    buildRoute: (BuildContext context) => BottomIconBadge(),
+  ),
 ];
 
 final List<RowItem> otherItems = <RowItem> [
