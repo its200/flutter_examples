@@ -78,11 +78,11 @@ class LoginPageState extends State<LoginPage> {
     scaffoldKey.currentState.showSnackBar(snackbar);
   }
 
-  Object _validateEmail(String email) {
+  String _validateEmail(String email) {
     RegExp exp = new RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
     return !exp.hasMatch(email) ? "Invalid Email" : null;
   }
-  Object _validatePwd(String pwd) {
+  String _validatePwd(String pwd) {
     return pwd.length < 5 ? "Invalid Password" : null;
   }
 }
