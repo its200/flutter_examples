@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
+import 'app_config.dart';
 
 final List<RowItem> basicItems = <RowItem> [
   RowItem(
@@ -54,11 +55,12 @@ final kAllDemos = basicItems + uiItems + otherItems;
 
 Widget createDemoList(BuildContext context, String title, List list) {
 
+  var config = AppConfig.of(context);
   return CupertinoPageScaffold(
     child: new CustomScrollView(
       slivers: <Widget>[
         CupertinoSliverNavigationBar(
-          largeTitle: Text(title),
+          largeTitle: Text(title + " " + config.env),
           trailing: TextIcon(),
         ),
         new SliverPadding(
