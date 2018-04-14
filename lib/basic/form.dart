@@ -4,17 +4,15 @@ class FormDemo extends StatelessWidget {
   static const String routeName = '/form_demo';
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginPage(),
+    return new MaterialApp(
+      home: new LoginPage(),
     );
   }
-
 }
 
 class LoginPage extends StatefulWidget {
   @override
   LoginPageState createState() => LoginPageState();
-
 }
 
 class LoginPageState extends State<LoginPage> {
@@ -26,31 +24,31 @@ class LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        title: Text("Login"),
+      appBar: new AppBar(
+        title: new Text("Login"),
       ),
-      body: Padding(
+      body: new Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Form(
+        child: new Form(
           key: formKey,
-          child: Column(
+          child: new Column(
             children: <Widget>[
-              TextFormField(
+              new TextFormField(
                 decoration: InputDecoration(labelText: "Email"),
                 validator: (val) => _validateEmail(val),
                 onSaved: (val) => _email = val,
               ),
-              TextFormField(
+              new TextFormField(
                 decoration: InputDecoration(labelText: "Password"),
                 validator: (val) => _validatePwd(val),
                 onSaved: (val) => _password = val,
                 obscureText: true,
               ),
-              Container(
+              new Container(
                 margin: EdgeInsets.only(top: 10.0),
-                child: RaisedButton(
+                child: new RaisedButton(
                   onPressed: _login,
                   child: new Text('Login'),
                 ),
@@ -79,9 +77,11 @@ class LoginPageState extends State<LoginPage> {
   }
 
   String _validateEmail(String email) {
-    RegExp exp = new RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+    RegExp exp = new RegExp(
+        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
     return !exp.hasMatch(email) ? "Invalid Email" : null;
   }
+
   String _validatePwd(String pwd) {
     return pwd.length < 5 ? "Invalid Password" : null;
   }

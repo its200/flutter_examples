@@ -7,34 +7,36 @@ class OverscrollHttp extends StatefulWidget {
   static const String routeName = '/overscroll_http';
 
   @override
-  OverscrollHttpState createState()  => OverscrollHttpState();
+  OverscrollHttpState createState() => OverscrollHttpState();
 }
 
 class OverscrollHttpState extends State<OverscrollHttp> {
-
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 300), () {
-        _refreshIndicatorKey.currentState?.show();
-      });
+    Future.delayed(new Duration(milliseconds: 300), () {
+      _refreshIndicatorKey.currentState?.show();
+    });
   }
 
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey = new GlobalKey<RefreshIndicatorState>();
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+      new GlobalKey<RefreshIndicatorState>();
   String _title = "";
   String _subTitle = "";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: RefreshIndicator(
-        key: _refreshIndicatorKey,
-        onRefresh: _getIPAddress,
-        child: ListView(
-        children: <Widget>[
-          ListTile(title: Text(_title),subtitle: Text(_subTitle),)
-        ],)
-      )
-    );
+    return new Scaffold(
+        body: new RefreshIndicator(
+            key: _refreshIndicatorKey,
+            onRefresh: _getIPAddress,
+            child: new ListView(
+              children: <Widget>[
+                new ListTile(
+                  title: new Text(_title),
+                  subtitle: new Text(_subTitle),
+                )
+              ],
+            )));
   }
 
   Future<Null> _getIPAddress() async {

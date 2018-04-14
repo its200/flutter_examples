@@ -5,10 +5,10 @@ class LayoutDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return new MaterialApp(
       title: "Layout Demos",
-      home: Scaffold(
-        appBar: AppBar(
+      home: new Scaffold(
+        appBar: new AppBar(
           leading: new IconButton(
             icon: new Icon(Icons.chevron_left),
             alignment: Alignment.centerLeft,
@@ -17,15 +17,15 @@ class LayoutDemo extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          title: Text("Layout Demos"),
+          title: new Text("Layout Demos"),
         ),
-        body: ListView(
+        body: new ListView(
           children: <Widget>[
-            ListTile(
-              title: Text("Basic Layout"),
+            new ListTile(
+              title: new Text("Basic Layout"),
               onTap: () {
-                Navigator.of(context, rootNavigator: true)
-                    .push(MaterialPageRoute(builder: (context) => BasicLayout()));
+                Navigator.of(context, rootNavigator: true).push(
+                    new MaterialPageRoute(builder: (context) => BasicLayout()));
               },
             ),
             new Divider(),
@@ -39,20 +39,22 @@ class LayoutDemo extends StatelessWidget {
 class BasicLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget titleSection = Container(
+    Widget titleSection = new Container(
       padding: EdgeInsets.all(32.0),
-      child: Row(
+      child: new Row(
         children: <Widget>[
-          Expanded(
-            child: Column(
+          new Expanded(
+            child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
+                new Container(
                   padding: EdgeInsets.only(bottom: 8.0),
-                  child: Text("Church of the Good Shepherd"),
+                  child: new Text("Church of the Good Shepherd"),
                 ),
-                Text("Lake Tekapo, New Zealand",
-                    style: TextStyle(color: Colors.grey[500]),)
+                new Text(
+                  "Lake Tekapo, New Zealand",
+                  style: TextStyle(color: Colors.grey[500]),
+                )
               ],
             ),
           ),
@@ -60,8 +62,8 @@ class BasicLayout extends StatelessWidget {
         ],
       ),
     );
-    Widget buttonSection = Container(
-      child: Row(
+    Widget buttonSection = new Container(
+      child: new Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           _buildButtonColumn(Icons.call, "Call"),
@@ -71,9 +73,9 @@ class BasicLayout extends StatelessWidget {
       ),
     );
 
-    Widget textSection = Container(
+    Widget textSection = new Container(
       padding: EdgeInsets.all(32.0),
-      child: Text(
+      child: new Text(
         '''
         Lake Tekapo is the second-largest of three roughly parallel lakes running north–south along the northern edge of the Mackenzie Basin in the South Island of New Zealand (the others are Lake Pukaki and Lake Ohau). It covers an area of 83 square kilometres (32 sq mi), and is at an altitude of 710 metres (2,330 ft) above sea level.
         ''',
@@ -81,9 +83,9 @@ class BasicLayout extends StatelessWidget {
       ),
     );
 
-    return MaterialApp(
-      home: Scaffold(
-        body: ListView(
+    return new MaterialApp(
+      home: new Scaffold(
+        body: new ListView(
           children: <Widget>[
             Image.asset(
               "assets/images/lake-tekapo.jpg",
@@ -101,19 +103,24 @@ class BasicLayout extends StatelessWidget {
   }
 
   Widget _buildButtonColumn(IconData icon, String label) {
-    return Column(
+    return new Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Icon(icon, color: Colors.blue,),
-        Container(
+        new Icon(
+          icon,
+          color: Colors.blue,
+        ),
+        new Container(
           margin: EdgeInsets.only(top: 10.0),
-          child: Text(label,
+          child: new Text(
+            label,
             style: new TextStyle(
               fontSize: 12.0,
               fontWeight: FontWeight.w400,
               color: Colors.blue,
-            ),),
+            ),
+          ),
         )
       ],
     );
@@ -131,20 +138,22 @@ class _FavoriteWidgetState extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return new Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Container(
+        new Container(
           padding: EdgeInsets.all(0.0),
-          child: IconButton(
-            icon: (_isFavorited ? Icon(Icons.favorite) : Icon(Icons.favorite_border)),
+          child: new IconButton(
+            icon: (_isFavorited
+                ? new Icon(Icons.favorite)
+                : new Icon(Icons.favorite_border)),
             color: Colors.red,
             onPressed: _toggleFavorited,
           ),
         ),
-        SizedBox(
+        new SizedBox(
           width: 18.0,
-          child: Text("$_favoriteCount"),
+          child: new Text("$_favoriteCount"),
         )
       ],
     );

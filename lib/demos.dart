@@ -4,22 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
-import 'app_config.dart';
 
-final List<RowItem> basicItems = <RowItem> [
-  RowItem(
+final List<RowItem> basicItems = <RowItem>[
+  new RowItem(
     name: "Hello World",
     description: "First Demo",
     routeName: HelloWorld.routeName,
     buildRoute: (BuildContext context) => HelloWorld(),
   ),
-  RowItem(
+  new RowItem(
     name: "Form",
     description: "A login page to show basic form feature",
     routeName: FormDemo.routeName,
     buildRoute: (BuildContext context) => FormDemo(),
   ),
-  RowItem(
+  new RowItem(
     name: "Overscroll with Http Request",
     description: "A pull to refresh widget with http response to render page",
     routeName: OverscrollHttp.routeName,
@@ -27,20 +26,20 @@ final List<RowItem> basicItems = <RowItem> [
   ),
 ];
 
-final List<RowItem> uiItems = <RowItem> [
-  RowItem(
+final List<RowItem> uiItems = <RowItem>[
+  new RowItem(
     name: "Cupertino Bottom Modal",
     description: "bottom modal with Curpertino widget",
     routeName: CupertinoBottomModal.routeName,
     buildRoute: (BuildContext context) => CupertinoBottomModal(),
   ),
-  RowItem(
+  new RowItem(
     name: "Layout",
     description: "a set of layout demos",
     routeName: LayoutDemo.routeName,
     buildRoute: (BuildContext context) => LayoutDemo(),
   ),
-  RowItem(
+  new RowItem(
     name: "Bottom Icon Badge",
     description: "a badge showing right top of an icon",
     routeName: BottomIconBadge.routeName,
@@ -48,19 +47,16 @@ final List<RowItem> uiItems = <RowItem> [
   ),
 ];
 
-final List<RowItem> otherItems = <RowItem> [
-];
+final List<RowItem> otherItems = <RowItem>[];
 
 final kAllDemos = basicItems + uiItems + otherItems;
 
 Widget createDemoList(BuildContext context, String title, List list) {
-
-  var config = AppConfig.of(context);
-  return CupertinoPageScaffold(
+  return new CupertinoPageScaffold(
     child: new CustomScrollView(
       slivers: <Widget>[
-        CupertinoSliverNavigationBar(
-          largeTitle: Text(title + " " + config.env),
+        new CupertinoSliverNavigationBar(
+          largeTitle: Text(title),
           trailing: TextIcon(),
         ),
         new SliverPadding(
@@ -69,17 +65,15 @@ Widget createDemoList(BuildContext context, String title, List list) {
           padding: MediaQuery
               .of(context)
               .removePadding(
-            removeTop: true,
-            removeLeft: true,
-            removeRight: true,
-          )
+                removeTop: true,
+                removeLeft: true,
+                removeRight: true,
+              )
               .padding,
           sliver: new SliverList(
             delegate: new SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                return new OneRow(
-                    rowItem: list[index]
-                );
+              (BuildContext context, int index) {
+                return new OneRow(rowItem: list[index]);
               },
               childCount: list.length,
             ),
@@ -107,7 +101,9 @@ class OneRow extends StatelessWidget {
             'from': '/',
             'to': rowItem.routeName
           });
-          Navigator.of(context, rootNavigator: true).pushNamed(rowItem.routeName);
+          Navigator
+              .of(context, rootNavigator: true)
+              .pushNamed(rowItem.routeName);
         }
       },
       child: new SafeArea(
@@ -121,7 +117,10 @@ class OneRow extends StatelessWidget {
               new Container(
                 height: 60.0,
                 width: 60.0,
-                child: Icon(Icons.favorite, color: Colors.red,),
+                child: new Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                ),
               ),
               new Expanded(
                 child: new Padding(
@@ -130,8 +129,8 @@ class OneRow extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       new Text(rowItem.name),
-                      Padding(padding: const EdgeInsets.only(top: 8.0)),
-                      Text(
+                      new Padding(padding: const EdgeInsets.only(top: 8.0)),
+                      new Text(
                         rowItem.description,
                         style: const TextStyle(
                           color: const Color(0xFF8E8E93),
@@ -165,13 +164,9 @@ class TextIcon extends StatelessWidget {
   const TextIcon();
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return new Row(
       mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Icon(Icons.exit_to_app),
-        Text("Exit")
-      ],
+      children: <Widget>[new Icon(Icons.exit_to_app), new Text("Exit")],
     );
   }
-
 }

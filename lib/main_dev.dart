@@ -9,7 +9,7 @@ import 'model/all_models.dart';
 import 'app_config.dart';
 
 void main() {
-  var appConfig = AppConfig(
+  var appConfig = new AppConfig(
     appName: 'My App Dev',
     env: "Dev",
     child: new MyApp(),
@@ -47,15 +47,14 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: new MyHomePage(),
-        routes: _kRoutes
-    );
+        routes: _kRoutes);
   }
 }
 
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CupertinoTabScaffold(
+    return new CupertinoTabScaffold(
       tabBar: new CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
@@ -99,5 +98,4 @@ class MyHomePage extends StatelessWidget {
       },
     );
   }
-
 }
