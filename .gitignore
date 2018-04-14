@@ -11,3 +11,4 @@ packages
 .flutter-plugins
 android/key.properties
 *.log
+*.iml
