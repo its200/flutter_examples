@@ -47,7 +47,15 @@ final List<RowItem> uiItems = <RowItem>[
   ),
 ];
 
-final List<RowItem> otherItems = <RowItem>[];
+final List<RowItem> otherItems = <RowItem>[
+  new RowItem(
+    name: "Local Auth",
+    description:
+        "local, on-device authentication with iOS (Touch ID or lock code) and the fingerprint APIs on Android (introduced in Android 6.0)",
+    routeName: LocalAuth.routeName,
+    buildRoute: (BuildContext context) => LocalAuth(),
+  )
+];
 
 final kAllDemos = basicItems + uiItems + otherItems;
 
