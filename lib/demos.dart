@@ -54,6 +54,12 @@ final List<RowItem> otherItems = <RowItem>[
         "local, on-device authentication with iOS (Touch ID or lock code) and the fingerprint APIs on Android (introduced in Android 6.0)",
     routeName: LocalAuth.routeName,
     buildRoute: (BuildContext context) => LocalAuth(),
+  ),
+  new RowItem(
+    name: "Push Notification",
+    description: "push notification using firebase_messaging",
+    routeName: PushNotification.routeName,
+    buildRoute: (BuildContext context) => PushNotification(),
   )
 ];
 

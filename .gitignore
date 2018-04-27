@@ -12,3 +12,4 @@ packages
 android/key.properties
 *.log
 *.iml
+android/app/google-services.json
