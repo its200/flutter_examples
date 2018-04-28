@@ -66,6 +66,12 @@ final List<RowItem> otherItems = <RowItem>[
     description: "scanning 2D barcodes and QR codes",
     routeName: QRCodeReader.routeName,
     buildRoute: (BuildContext context) => QRCodeReader(),
+  ),
+  new RowItem(
+    name: "Webview",
+    description: "Web view open a PDF",
+    routeName: WebViewPage.routeName,
+    buildRoute: (BuildContext context) => WebViewPage(),
   )
 ];
 
