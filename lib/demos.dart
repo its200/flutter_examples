@@ -60,6 +60,12 @@ final List<RowItem> otherItems = <RowItem>[
     description: "push notification using firebase_messaging",
     routeName: PushNotification.routeName,
     buildRoute: (BuildContext context) => PushNotification(),
+  ),
+  new RowItem(
+    name: "QR Code Reader",
+    description: "scanning 2D barcodes and QR codes",
+    routeName: QRCodeReader.routeName,
+    buildRoute: (BuildContext context) => QRCodeReader(),
   )
 ];
 

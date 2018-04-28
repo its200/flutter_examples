@@ -6,3 +6,4 @@ export 'ui/layout.dart';
 export 'ui/bottom_icon_badge.dart';
 export 'other/local_auth.dart';
 export 'other/push_notification.dart';
+export 'other/qrcode_reader.dart';
