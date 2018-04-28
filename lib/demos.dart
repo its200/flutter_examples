@@ -24,6 +24,12 @@ final List<RowItem> basicItems = <RowItem>[
     routeName: OverscrollHttp.routeName,
     buildRoute: (BuildContext context) => OverscrollHttp(),
   ),
+  new RowItem(
+    name: "Platform Channel",
+    description: "Android platform channel",
+    routeName: PlatformChannel.routeName,
+    buildRoute: (BuildContext context) => PlatformChannel(),
+  ),
 ];
 
 final List<RowItem> uiItems = <RowItem>[
