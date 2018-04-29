@@ -78,6 +78,12 @@ final List<RowItem> otherItems = <RowItem>[
     description: "Web view open a PDF",
     routeName: WebViewPage.routeName,
     buildRoute: (BuildContext context) => WebViewPage(),
+  ),
+  new RowItem(
+    name: "Url Launch",
+    description: "Launch a url",
+    routeName: UrlLaunchDemo.routeName,
+    buildRoute: (BuildContext context) => UrlLaunchDemo(),
   )
 ];
 
