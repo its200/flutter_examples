@@ -7,5 +7,5 @@ export 'ui/bottom_icon_badge.dart';
 export 'other/local_auth.dart';
 export 'other/push_notification.dart';
 export 'other/qrcode_reader.dart';
-export 'other/webview.dart';
+export 'other/webview_plugin.dart';
 export 'basic/planform_channel.dart';
