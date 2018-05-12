@@ -30,6 +30,12 @@ final List<RowItem> basicItems = <RowItem>[
     routeName: PlatformChannel.routeName,
     buildRoute: (BuildContext context) => PlatformChannel(),
   ),
+  new RowItem(
+    name: "Platform Full Screen",
+    description: "Open a platform page as full screen",
+    routeName: PlatformFullScreen.routeName,
+    buildRoute: (BuildContext context) => PlatformFullScreen(),
+  ),
 ];
 
 final List<RowItem> uiItems = <RowItem>[

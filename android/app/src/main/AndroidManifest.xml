@@ -35,5 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FullScreenActivity"
+            android:parentActivityName="site.tsun.flutterexamples.MainActivity"
+            android:theme="@style/CommonTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale"/>
     </application>
 </manifest>

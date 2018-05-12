@@ -8,5 +8,6 @@ export 'other/local_auth.dart';
 export 'other/push_notification.dart';
 export 'other/qrcode_reader.dart';
 export 'other/webview_plugin.dart';
-export 'basic/planform_channel.dart';
+export 'basic/platform_channel.dart';
 export 'other/url_launch.dart';
+export 'basic/platform_full_screent.dart';
