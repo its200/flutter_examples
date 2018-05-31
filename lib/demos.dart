@@ -57,6 +57,12 @@ final List<RowItem> uiItems = <RowItem>[
     routeName: BottomIconBadge.routeName,
     buildRoute: (BuildContext context) => BottomIconBadge(),
   ),
+  new RowItem(
+    name: "Hero Animation",
+    description: "Animation with Hero widget",
+    routeName: HeroAnimation.routeName,
+    buildRoute: (BuildContext context) => HeroAnimation(),
+  ),
 ];
 
 final List<RowItem> otherItems = <RowItem>[

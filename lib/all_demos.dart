@@ -11,3 +11,4 @@ export 'other/webview_plugin.dart';
 export 'basic/platform_channel.dart';
 export 'other/url_launch.dart';
 export 'basic/platform_full_screen.dart';
+export 'ui/hero_animation.dart';
