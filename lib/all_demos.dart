@@ -10,4 +10,4 @@ export 'other/qrcode_reader.dart';
 export 'other/webview_plugin.dart';
 export 'basic/platform_channel.dart';
 export 'other/url_launch.dart';
-export 'basic/platform_full_screent.dart';
+export 'basic/platform_full_screen.dart';
