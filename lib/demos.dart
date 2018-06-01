@@ -63,6 +63,12 @@ final List<RowItem> uiItems = <RowItem>[
     routeName: HeroAnimation.routeName,
     buildRoute: (BuildContext context) => HeroAnimation(),
   ),
+  new RowItem(
+    name: "Custom List",
+    description: "Custom List",
+    routeName: CustomList.routeName,
+    buildRoute: (BuildContext context) => CustomList(),
+  ),
 ];
 
 final List<RowItem> otherItems = <RowItem>[
