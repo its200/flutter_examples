@@ -43,7 +43,9 @@ class Sheet extends StatelessWidget {
           // Note commenting out both subtitle and trailing
           // 'fixes' the shadow issue - they render properly w/ scrolling.
           subtitle: const Text('List Tile Subtitle'),
-          trailing: const ExpandIcon(),
+          trailing: const ExpandIcon(
+            onPressed: null,
+          ),
         ),
       );
 }
