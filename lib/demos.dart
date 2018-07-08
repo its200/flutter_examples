@@ -1,9 +1,10 @@
 import 'model/all_models.dart';
-import 'all_demos.dart';
+import 'package:flutter_examples/all_demos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_examples/app_config.dart';
 
 final List<RowItem> basicItems = <RowItem>[
   new RowItem(
@@ -112,7 +113,7 @@ Widget createDemoList(BuildContext context, String title, List list) {
     child: new CustomScrollView(
       slivers: <Widget>[
         new CupertinoSliverNavigationBar(
-          largeTitle: Text(title),
+          largeTitle: Text(title + " - " + AppConfig.of(context).env),
           trailing: TextIcon(),
         ),
         new SliverPadding(

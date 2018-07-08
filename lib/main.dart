@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'basic/basic.dart';
-import 'ui/ui.dart';
-import 'other/other.dart';
-import 'demos.dart';
-import 'model/all_models.dart';
+import 'package:flutter_examples/basic/basic.dart';
+import 'package:flutter_examples/ui/ui.dart';
+import 'package:flutter_examples/other/other.dart';
+import 'package:flutter_examples/demos.dart';
+import 'package:flutter_examples/model/all_models.dart';
+import 'package:flutter_examples/app_config.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  var appConfig = new AppConfig(
+    appName: 'My App Dev',
+    env: "Prod",
+    child: new MyApp(),
+  );
+  runApp(appConfig);
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -23,9 +31,10 @@ class MyApp extends StatelessWidget {
         return item.buildRoute(context);
       };
     }
+    var config = AppConfig.of(context);
 
     return new MaterialApp(
-        title: 'Flutter Demo',
+        title: config.appName,
         theme: new ThemeData(
           // This is the theme of your application.
           //
@@ -35,7 +44,7 @@ class MyApp extends StatelessWidget {
           // "hot reload" (press "r" in the console where you ran "flutter run",
           // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
           // counter didn't reset back to zero; the application is not restarted.
-          primarySwatch: Colors.blue,
+          primaryColor: Colors.blue,
         ),
         home: new MyHomePage(),
         routes: _kRoutes);
