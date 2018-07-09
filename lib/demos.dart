@@ -1,10 +1,27 @@
-import 'model/all_models.dart';
-import 'package:flutter_examples/all_demos.dart';
+import 'package:flutter_examples/model/all_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_examples/app_config.dart';
+
+import 'package:flutter_examples/basic/hello_world.dart';
+import 'package:flutter_examples/basic/form.dart';
+import 'package:flutter_examples/basic/overscroll_http.dart';
+import 'package:flutter_examples/ui/cupertino_bottom_modal.dart';
+import 'package:flutter_examples/ui/layout.dart';
+import 'package:flutter_examples/ui/bottom_icon_badge.dart';
+import 'package:flutter_examples/other/local_auth.dart';
+import 'package:flutter_examples/other/push_notification.dart';
+import 'package:flutter_examples/other/qrcode_reader.dart';
+import 'package:flutter_examples/other/webview_plugin.dart';
+import 'package:flutter_examples/basic/platform_channel.dart';
+import 'package:flutter_examples/other/url_launch.dart';
+import 'package:flutter_examples/basic/platform_full_screen.dart';
+import 'package:flutter_examples/ui/hero_animation.dart';
+import 'package:flutter_examples/ui/custom_list.dart';
+import 'package:flutter_examples/other/point_line_chart.dart';
+
 
 final List<RowItem> basicItems = <RowItem>[
   new RowItem(
@@ -103,6 +120,12 @@ final List<RowItem> otherItems = <RowItem>[
     description: "Launch a url",
     routeName: UrlLaunchDemo.routeName,
     buildRoute: (BuildContext context) => UrlLaunchDemo(),
+  ),
+  new RowItem(
+    name: "Point Line Chart",
+    description: "Google Charts - Point Line Chart",
+    routeName: PointLineChart.routeName,
+    buildRoute: (BuildContext context) => PointLineChart.withSampleData(),
   )
 ];
 
