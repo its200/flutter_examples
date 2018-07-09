@@ -10,7 +10,7 @@ import 'package:flutter_examples/app_config.dart';
 
 void main() {
   var appConfig = new AppConfig(
-    appName: 'My App Dev',
+    appName: 'My App',
     env: "Prod",
     child: new MyApp(),
   );
