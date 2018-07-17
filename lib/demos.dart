@@ -21,6 +21,7 @@ import 'package:flutter_examples/basic/platform_full_screen.dart';
 import 'package:flutter_examples/ui/hero_animation.dart';
 import 'package:flutter_examples/ui/custom_list.dart';
 import 'package:flutter_examples/other/point_line_chart.dart';
+import 'package:flutter_examples/ui/drawer_demo.dart';
 
 final List<RowItem> basicItems = <RowItem>[
   new RowItem(
@@ -85,6 +86,12 @@ final List<RowItem> uiItems = <RowItem>[
     description: "Custom List",
     routeName: CustomList.routeName,
     buildRoute: (BuildContext context) => CustomList(),
+  ),
+  new RowItem(
+    name: "Drawer Fragment",
+    description: "Scafford drawer with multiple pages and different app bar",
+    routeName: DrawerDemo.routeName,
+    buildRoute: (BuildContext context) => DrawerDemo(),
   ),
 ];
 
