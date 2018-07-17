@@ -22,6 +22,7 @@ import 'package:flutter_examples/ui/hero_animation.dart';
 import 'package:flutter_examples/ui/custom_list.dart';
 import 'package:flutter_examples/other/point_line_chart.dart';
 import 'package:flutter_examples/ui/drawer_demo.dart';
+import 'package:flutter_examples/ui/timer.dart';
 
 final List<RowItem> basicItems = <RowItem>[
   new RowItem(
@@ -93,6 +94,12 @@ final List<RowItem> uiItems = <RowItem>[
     routeName: DrawerDemo.routeName,
     buildRoute: (BuildContext context) => DrawerDemo(),
   ),
+  new RowItem(
+    name: "My Timer",
+    description: "Timer",
+    routeName: Timer.routeName,
+    buildRoute: (BuildContext context) => Timer(),
+  )
 ];
 
 final List<RowItem> otherItems = <RowItem>[
