@@ -1,10 +1,10 @@
-import 'package:flutter_examples/model/all_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_examples/app_config.dart';
 
+import 'package:flutter_examples/app_config.dart';
+import 'package:flutter_examples/model/row_item.dart';
 import 'package:flutter_examples/basic/hello_world.dart';
 import 'package:flutter_examples/basic/form.dart';
 import 'package:flutter_examples/basic/overscroll_http.dart';
@@ -21,7 +21,6 @@ import 'package:flutter_examples/basic/platform_full_screen.dart';
 import 'package:flutter_examples/ui/hero_animation.dart';
 import 'package:flutter_examples/ui/custom_list.dart';
 import 'package:flutter_examples/other/point_line_chart.dart';
-
 
 final List<RowItem> basicItems = <RowItem>[
   new RowItem(

@@ -5,7 +5,7 @@ import 'package:flutter_examples/basic/basic.dart';
 import 'package:flutter_examples/ui/ui.dart';
 import 'package:flutter_examples/other/other.dart';
 import 'package:flutter_examples/demos.dart';
-import 'package:flutter_examples/model/all_models.dart';
+import 'package:flutter_examples/model/row_item.dart';
 import 'package:flutter_examples/app_config.dart';
 
 void main() {
