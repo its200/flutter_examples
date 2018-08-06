@@ -23,6 +23,7 @@ import 'package:flutter_examples/ui/custom_list.dart';
 import 'package:flutter_examples/other/point_line_chart.dart';
 import 'package:flutter_examples/ui/drawer_demo.dart';
 import 'package:flutter_examples/ui/timer.dart';
+import 'package:flutter_examples/other/pull_refresh_load_more.dart';
 
 final List<RowItem> basicItems = <RowItem>[
   new RowItem(
@@ -139,6 +140,12 @@ final List<RowItem> otherItems = <RowItem>[
     description: "Google Charts - Point Line Chart",
     routeName: PointLineChart.routeName,
     buildRoute: (BuildContext context) => PointLineChart.withSampleData(),
+  ),
+  new RowItem(
+    name: "Pull Refresh Load More",
+    description: "Pull to refresh and load more at bottom",
+    routeName: PullRefreshLoadMore.routeName,
+    buildRoute: (BuildContext context) => PullRefreshLoadMore(),
   )
 ];
 
