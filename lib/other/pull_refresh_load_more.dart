@@ -126,7 +126,7 @@ class _PullRefreshLoadMoreState extends State<PullRefreshLoadMore> {
   Widget _buildLoadMoreIndicator() {
     Widget bottomWidget = (hasMore)
         ? Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-            SpinKitWave(color: Colors.blue, size: 30.0),
+            SpinKitWave(color: Colors.blue, size: 25.0),
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Text("Loading More Data"),
