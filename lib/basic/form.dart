@@ -4,18 +4,18 @@ class FormDemo extends StatelessWidget {
   static const String routeName = '/form_demo';
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new LoginPage(),
+    return MaterialApp(
+      home: _LoginPage(),
     );
   }
 }
 
-class LoginPage extends StatefulWidget {
+class _LoginPage extends StatefulWidget {
   @override
-  LoginPageState createState() => LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<_LoginPage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final formKey = GlobalKey<FormState>();
 
@@ -24,33 +24,33 @@ class LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       key: scaffoldKey,
-      appBar: new AppBar(
-        title: new Text("Login"),
+      appBar: AppBar(
+        title: Text("Login"),
       ),
-      body: new Padding(
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: new Form(
+        child: Form(
           key: formKey,
-          child: new Column(
+          child: Column(
             children: <Widget>[
-              new TextFormField(
+              TextFormField(
                 decoration: InputDecoration(labelText: "Email"),
                 validator: (val) => _validateEmail(val),
                 onSaved: (val) => _email = val,
               ),
-              new TextFormField(
+              TextFormField(
                 decoration: InputDecoration(labelText: "Password"),
                 validator: (val) => _validatePwd(val),
                 onSaved: (val) => _password = val,
                 obscureText: true,
               ),
-              new Container(
+              Container(
                 margin: EdgeInsets.only(top: 10.0),
-                child: new RaisedButton(
+                child: RaisedButton(
                   onPressed: _login,
-                  child: new Text('Login'),
+                  child: Text('Login'),
                 ),
               )
             ],
@@ -69,15 +69,15 @@ class LoginPageState extends State<LoginPage> {
   }
 
   void _performLogin() {
-    final snackbar = new SnackBar(
-      content: new Text("Email: $_email, password: $_password"),
+    final snackbar = SnackBar(
+      content: Text("Email: $_email, password: $_password"),
     );
 
     scaffoldKey.currentState.showSnackBar(snackbar);
   }
 
   String _validateEmail(String email) {
-    RegExp exp = new RegExp(
+    RegExp exp = RegExp(
         r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
     return !exp.hasMatch(email) ? "Invalid Email" : null;
   }

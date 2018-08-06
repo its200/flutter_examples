@@ -24,33 +24,34 @@ import 'package:flutter_examples/other/point_line_chart.dart';
 import 'package:flutter_examples/ui/drawer_demo.dart';
 import 'package:flutter_examples/ui/timer.dart';
 import 'package:flutter_examples/other/pull_refresh_load_more.dart';
+import 'package:flutter_examples/ui/login_animation_page.dart';
 
 final List<RowItem> basicItems = <RowItem>[
-  new RowItem(
+  RowItem(
     name: "Hello World",
     description: "First Demo",
     routeName: HelloWorld.routeName,
     buildRoute: (BuildContext context) => HelloWorld(),
   ),
-  new RowItem(
+  RowItem(
     name: "Form",
     description: "A login page to show basic form feature",
     routeName: FormDemo.routeName,
     buildRoute: (BuildContext context) => FormDemo(),
   ),
-  new RowItem(
+  RowItem(
     name: "Overscroll with Http Request",
     description: "A pull to refresh widget with http response to render page",
     routeName: OverscrollHttp.routeName,
     buildRoute: (BuildContext context) => OverscrollHttp(),
   ),
-  new RowItem(
+  RowItem(
     name: "Platform Channel",
     description: "Android platform channel",
     routeName: PlatformChannel.routeName,
     buildRoute: (BuildContext context) => PlatformChannel(),
   ),
-  new RowItem(
+  RowItem(
     name: "Platform Full Screen",
     description: "Open a platform page as full screen",
     routeName: PlatformFullScreen.routeName,
@@ -59,89 +60,95 @@ final List<RowItem> basicItems = <RowItem>[
 ];
 
 final List<RowItem> uiItems = <RowItem>[
-  new RowItem(
+  RowItem(
     name: "Cupertino Bottom Modal",
     description: "bottom modal with Curpertino widget",
     routeName: CupertinoBottomModal.routeName,
     buildRoute: (BuildContext context) => CupertinoBottomModal(),
   ),
-  new RowItem(
+  RowItem(
     name: "Layout",
     description: "a set of layout demos",
     routeName: LayoutDemo.routeName,
     buildRoute: (BuildContext context) => LayoutDemo(),
   ),
-  new RowItem(
+  RowItem(
     name: "Bottom Icon Badge",
     description: "a badge showing right top of an icon",
     routeName: BottomIconBadge.routeName,
     buildRoute: (BuildContext context) => BottomIconBadge(),
   ),
-  new RowItem(
+  RowItem(
     name: "Hero Animation",
     description: "Animation with Hero widget",
     routeName: HeroAnimation.routeName,
     buildRoute: (BuildContext context) => HeroAnimation(),
   ),
-  new RowItem(
+  RowItem(
     name: "Custom List",
     description: "Custom List",
     routeName: CustomList.routeName,
     buildRoute: (BuildContext context) => CustomList(),
   ),
-  new RowItem(
+  RowItem(
     name: "Drawer Fragment",
     description: "Scafford drawer with multiple pages and different app bar",
     routeName: DrawerDemo.routeName,
     buildRoute: (BuildContext context) => DrawerDemo(),
   ),
-  new RowItem(
+  RowItem(
     name: "My Timer",
     description: "Timer",
     routeName: Timer.routeName,
     buildRoute: (BuildContext context) => Timer(),
+  ),
+  RowItem(
+    name: "A Login Page",
+    description: "Login Page",
+    routeName: LoginAnimationPage.routeName,
+    buildRoute: (BuildContext context) => LoginAnimationPage(),
   )
 ];
 
 final List<RowItem> otherItems = <RowItem>[
-  new RowItem(
+  RowItem(
     name: "Local Auth",
     description:
         "local, on-device authentication with iOS (Touch ID or lock code) and the fingerprint APIs on Android (introduced in Android 6.0)",
     routeName: LocalAuth.routeName,
     buildRoute: (BuildContext context) => LocalAuth(),
   ),
-  new RowItem(
+  RowItem(
     name: "Push Notification",
     description: "push notification using firebase_messaging",
     routeName: PushNotification.routeName,
     buildRoute: (BuildContext context) => PushNotification(),
   ),
-  new RowItem(
+  RowItem(
     name: "QR Code Reader",
     description: "scanning 2D barcodes and QR codes",
     routeName: QRCodeReader.routeName,
     buildRoute: (BuildContext context) => QRCodeReader(),
   ),
-  new RowItem(
+  RowItem(
     name: "Webview",
     description: "Web view open a PDF",
     routeName: WebViewPage.routeName,
     buildRoute: (BuildContext context) => WebViewPage(),
   ),
-  new RowItem(
+  RowItem(
     name: "Url Launch",
     description: "Launch a url",
     routeName: UrlLaunchDemo.routeName,
     buildRoute: (BuildContext context) => UrlLaunchDemo(),
   ),
-  new RowItem(
+  RowItem(
     name: "Point Line Chart",
     description: "Google Charts - Point Line Chart",
     routeName: PointLineChart.routeName,
     buildRoute: (BuildContext context) => PointLineChart.withSampleData(),
   ),
-  new RowItem(
+  RowItem(
     name: "Pull Refresh Load More",
     description: "Pull to refresh and load more at bottom",
     routeName: PullRefreshLoadMore.routeName,
@@ -152,14 +159,14 @@ final List<RowItem> otherItems = <RowItem>[
 final kAllDemos = basicItems + uiItems + otherItems;
 
 Widget createDemoList(BuildContext context, String title, List list) {
-  return new CupertinoPageScaffold(
-    child: new CustomScrollView(
+  return CupertinoPageScaffold(
+    child: CustomScrollView(
       slivers: <Widget>[
-        new CupertinoSliverNavigationBar(
+        CupertinoSliverNavigationBar(
           largeTitle: Text(title + " - " + AppConfig.of(context).env),
           trailing: TextIcon(),
         ),
-        new SliverPadding(
+        SliverPadding(
           // Top media padding consumed by CupertinoSliverNavigationBar.
           // Left/Right media padding consumed by Tab1RowItem.
           padding: MediaQuery
@@ -170,10 +177,10 @@ Widget createDemoList(BuildContext context, String title, List list) {
                 removeRight: true,
               )
               .padding,
-          sliver: new SliverList(
-            delegate: new SliverChildBuilderDelegate(
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return new OneRow(rowItem: list[index]);
+                return OneRow(rowItem: list[index]);
               },
               childCount: list.length,
             ),
@@ -193,7 +200,7 @@ class OneRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget row = new GestureDetector(
+    final Widget row = GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
         if (rowItem.routeName != null) {
@@ -206,31 +213,31 @@ class OneRow extends StatelessWidget {
               .pushNamed(rowItem.routeName);
         }
       },
-      child: new SafeArea(
+      child: SafeArea(
         top: false,
         bottom: false,
-        child: new Padding(
+        child: Padding(
           padding: const EdgeInsets.only(
               left: 16.0, top: 8.0, bottom: 8.0, right: 8.0),
-          child: new Row(
+          child: Row(
             children: <Widget>[
-              new Container(
+              Container(
                 height: 60.0,
                 width: 60.0,
-                child: new Icon(
+                child: Icon(
                   Icons.favorite,
                   color: Colors.red,
                 ),
               ),
-              new Expanded(
-                child: new Padding(
+              Expanded(
+                child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: new Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      new Text(rowItem.name),
-                      new Padding(padding: const EdgeInsets.only(top: 8.0)),
-                      new Text(
+                      Text(rowItem.name),
+                      Padding(padding: const EdgeInsets.only(top: 8.0)),
+                      Text(
                         rowItem.description,
                         style: const TextStyle(
                           color: const Color(0xFF8E8E93),
@@ -248,10 +255,10 @@ class OneRow extends StatelessWidget {
       ),
     );
 
-    return new Column(
+    return Column(
       children: <Widget>[
         row,
-        new Container(
+        Container(
           height: 1.0,
           color: const Color(0xFFD9D9D9),
         ),
@@ -264,9 +271,9 @@ class TextIcon extends StatelessWidget {
   const TextIcon();
   @override
   Widget build(BuildContext context) {
-    return new Row(
+    return Row(
       mainAxisSize: MainAxisSize.min,
-      children: <Widget>[new Icon(Icons.exit_to_app), new Text("Exit")],
+      children: <Widget>[Icon(Icons.exit_to_app), Text("Exit")],
     );
   }
 }
