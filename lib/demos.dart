@@ -13,6 +13,12 @@ final List<RowItem> basicItems = <RowItem>[
     buildRoute: (BuildContext context) => HelloWorld(),
   ),
   RowItem(
+    name: "Animation",
+    description: "A collection of animation demos",
+    routeName: AnimationPage.routeName,
+    buildRoute: (BuildContext context) => AnimationPage(),
+  ),
+  RowItem(
     name: "Form",
     description: "A login page to show basic form feature",
     routeName: FormDemo.routeName,
