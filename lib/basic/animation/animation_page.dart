@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_examples/basic/animation/welcome_animation.dart';
 import 'package:flutter_examples/basic/animation/flight_animation.dart';
+import 'package:flutter_examples/basic/animation/dot_animation.dart';
 
 class AnimationPage extends StatelessWidget {
   static const String routeName = 'animation_page';
@@ -24,6 +25,13 @@ class AnimationPage extends StatelessWidget {
             title: Text('Flight animation'),
             onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => FlightAnimation())),
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Dot animation'),
+            onTap: () => Navigator
+                .of(context)
+                .push(MaterialPageRoute(builder: (context) => DotAnimation())),
           ),
           Divider(),
         ],
