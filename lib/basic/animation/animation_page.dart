@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_examples/basic/animation/welcome_animation.dart';
+import 'package:flutter_examples/basic/animation/flight_animation.dart';
 
 class AnimationPage extends StatelessWidget {
   static const String routeName = 'animation_page';
@@ -14,11 +15,17 @@ class AnimationPage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           ListTile(
-            title: Text('welcome page animation'),
+            title: Text('Welcome page animation'),
             onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => WelcomeAnimation())),
           ),
-          Divider()
+          Divider(),
+          ListTile(
+            title: Text('Flight animation'),
+            onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => FlightAnimation())),
+          ),
+          Divider(),
         ],
       ),
     );
