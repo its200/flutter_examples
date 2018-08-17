@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class HeroAnimation extends StatelessWidget {
-  static const String routeName = '/hero_animation';
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

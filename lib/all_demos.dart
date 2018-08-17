@@ -13,7 +13,6 @@ export 'package:flutter_examples/other/webview_plugin.dart';
 export 'package:flutter_examples/basic/platform_channel.dart';
 export 'package:flutter_examples/other/url_launch.dart';
 export 'package:flutter_examples/basic/platform_full_screen.dart';
-export 'package:flutter_examples/ui/hero_animation.dart';
 export 'package:flutter_examples/ui/custom_list.dart';
 export 'package:flutter_examples/other/point_line_chart.dart';
 export 'package:flutter_examples/ui/drawer_demo.dart';
