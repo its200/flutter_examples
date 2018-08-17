@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_examples/basic/animation/welcome_animation.dart';
 import 'package:flutter_examples/basic/animation/flight_animation.dart';
 import 'package:flutter_examples/basic/animation/dot_animation.dart';
+import 'package:flutter_examples/basic/animation/fade_animation.dart';
+import 'package:flutter_examples/basic/animation/size_transition_animation.dart';
 
 class AnimationPage extends StatelessWidget {
   static const String routeName = 'animation_page';
@@ -32,6 +34,19 @@ class AnimationPage extends StatelessWidget {
             onTap: () => Navigator
                 .of(context)
                 .push(MaterialPageRoute(builder: (context) => DotAnimation())),
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Fade in and out'),
+            onTap: () => Navigator
+                .of(context)
+                .push(MaterialPageRoute(builder: (context) => FadeAnimation())),
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Size Transition'),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SizeTransitionAnimation())),
           ),
           Divider(),
         ],
