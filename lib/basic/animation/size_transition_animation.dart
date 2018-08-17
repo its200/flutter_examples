@@ -15,7 +15,7 @@ class _SizeTransitionAnimationState extends State<SizeTransitionAnimation>
   @override
   void initState() {
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
     super.initState();
     _animationController.forward();
   }
@@ -32,20 +32,35 @@ class _SizeTransitionAnimationState extends State<SizeTransitionAnimation>
       appBar: AppBar(
         title: Text('Size Transition Demo'),
       ),
-      body: Center(
-        child: SizeTransition(
-            sizeFactor: CurvedAnimation(
-                //new
-                parent: _animationController,
-                curve: Curves.easeOut,
-                reverseCurve: Curves.decelerate),
-            child: Center(
-              child: Container(
-                width: 200.0,
-                height: 200.0,
-                color: Colors.orange,
-              ),
-            )),
+      body: Column(
+        children: <Widget>[
+          Center(
+            child: Container(
+              width: 220.0,
+              height: 220.0,
+              color: Colors.green,
+            ),
+          ),
+          Container(
+            width: 100.0,
+            height: 100.0,
+          ),
+          Center(
+            child: SizeTransition(
+                sizeFactor: CurvedAnimation(
+                    //new
+                    parent: _animationController,
+                    curve: Curves.easeOut,
+                    reverseCurve: Curves.decelerate),
+                child: Center(
+                  child: Container(
+                    width: 200.0,
+                    height: 200.0,
+                    color: Colors.orange,
+                  ),
+                )),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.near_me),
