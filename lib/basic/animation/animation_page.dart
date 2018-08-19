@@ -6,6 +6,7 @@ import 'package:flutter_examples/basic/animation/dot_animation.dart';
 import 'package:flutter_examples/basic/animation/fade_animation.dart';
 import 'package:flutter_examples/basic/animation/size_transition_animation.dart';
 import 'package:flutter_examples/basic/animation/hero_animation.dart';
+import 'package:flutter_examples/basic/animation/fade_trasition_animation.dart';
 
 class AnimationPage extends StatelessWidget {
   static const String routeName = 'animation_page';
@@ -55,6 +56,12 @@ class AnimationPage extends StatelessWidget {
             onTap: () => Navigator
                 .of(context)
                 .push(MaterialPageRoute(builder: (context) => HeroAnimation())),
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Fade Transition Animation'),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => FadeTransitionAnimation())),
           ),
           Divider(),
         ],

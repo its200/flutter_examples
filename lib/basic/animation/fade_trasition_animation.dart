@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class SizeTransitionAnimation extends StatefulWidget {
+class FadeTransitionAnimation extends StatefulWidget {
   @override
-  _SizeTransitionAnimationState createState() =>
-      _SizeTransitionAnimationState();
+  _FadeTransitionAnimationState createState() =>
+      _FadeTransitionAnimationState();
 }
 
-class _SizeTransitionAnimationState extends State<SizeTransitionAnimation>
+class _FadeTransitionAnimationState extends State<FadeTransitionAnimation>
     with SingleTickerProviderStateMixin {
   bool _isShowing = true;
 
@@ -42,31 +42,27 @@ class _SizeTransitionAnimationState extends State<SizeTransitionAnimation>
             ),
           ),
           Container(
-            width: 30.0,
             height: 30.0,
           ),
           Center(
-            child: SizeTransition(
-                sizeFactor: CurvedAnimation(
-                    //new
-                    parent: _animationController,
-                    curve: Curves.easeOut,
-                    reverseCurve: Curves.decelerate),
+            child: FadeTransition(
+                opacity: _animationController,
                 child: Center(
                   child: Container(
-                    width: 100.0,
-                    height: 100.0,
+                    width: 200.0,
+                    height: 200.0,
                     color: Colors.orange,
                   ),
                 )),
           ),
           Container(
-            height: 20.0,
+            width: 50.0,
+            height: 50.0,
           ),
           Center(
             child: Container(
-              width: 80.0,
-              height: 80.0,
+              width: 120.0,
+              height: 120.0,
               decoration:
                   BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
             ),
@@ -74,7 +70,7 @@ class _SizeTransitionAnimationState extends State<SizeTransitionAnimation>
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.near_me),
+          child: Icon(Icons.flight_takeoff),
           onPressed: () => setState(() {
                 _isShowing = !_isShowing;
                 if (_isShowing) {
