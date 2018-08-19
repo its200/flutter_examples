@@ -10,16 +10,17 @@ class _FlightAnimationState extends State<FlightAnimation>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
 
+  Animation _animation;
+  bool isToRight = true;
+
   @override
   void initState() {
     _animationController = AnimationController(
-        lowerBound: -1.0,
-        upperBound: 1.0,
-        duration: Duration(milliseconds: 3000),
-        vsync: this)
-      ..addListener(() => this.setState(() {}));
+        duration: Duration(milliseconds: 3000), vsync: this);
+    _animation =
+        AlignmentTween(begin: Alignment(-1.0, 0.0), end: Alignment(1.0, 0.0))
+            .animate(_animationController);
     super.initState();
-    _animationController.forward(from: -1.0);
   }
 
   @override
@@ -31,23 +32,42 @@ class _FlightAnimationState extends State<FlightAnimation>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          FractionallySizedBox(
-            heightFactor: 0.2,
-            widthFactor: 0.2,
-            alignment: Alignment(_animationController.value, 0.0),
-            child: Transform.rotate(
-              angle: pi / 2,
-              child: Icon(
-                Icons.flight,
-                size: 80.0,
-              ),
-            ),
-          )
-        ],
-      ),
+      body: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, child) {
+            return Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                FractionallySizedBox(
+                  heightFactor: 0.2,
+                  widthFactor: 0.2,
+                  alignment: _animation.value,
+                  child: Transform.rotate(
+                    angle: !isToRight ? pi / 2 : -pi / 2,
+                    child: Icon(
+                      Icons.flight,
+                      size: 80.0,
+                    ),
+                  ),
+                )
+              ],
+            );
+          }),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.arrow_back),
+          onPressed: () {
+            if (isToRight) {
+              setState(() {
+                _animationController.forward();
+                isToRight = !isToRight;
+              });
+            } else {
+              setState(() {
+                _animationController.reverse();
+                isToRight = !isToRight;
+              });
+            }
+          }),
     );
   }
 }
