@@ -138,6 +138,12 @@ final List<RowItem> otherItems = <RowItem>[
     description: "Pull to refresh and load more at bottom",
     routeName: PullRefreshLoadMore.routeName,
     buildRoute: (BuildContext context) => PullRefreshLoadMore(),
+  ),
+  RowItem(
+    name: "Firebase Auth",
+    description: "Sign in with Firebase auth",
+    routeName: FirebaseAuthPage.routeName,
+    buildRoute: (BuildContext context) => FirebaseAuthPage(),
   )
 ];
 
