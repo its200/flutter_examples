@@ -7,9 +7,9 @@ dependencies:
   local_auth: "^0.2.0"
   firebase_messaging: "^0.2.4"
   barcode_scan: "^0.0.4"
-  flutter_webview_plugin: "^0.1.5"
+  flutter_webview_plugin: ^0.2.1+2
   url_launcher: "^3.0.0"
-  charts_flutter: "^0.3.0"
+  charts_flutter: "^0.4.0"
   cupertino_icons: "^0.1.0"
   flutter_spinkit: ^2.0.0
   google_sign_in: ^3.0.5
