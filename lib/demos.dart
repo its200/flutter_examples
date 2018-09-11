@@ -92,6 +92,12 @@ final List<RowItem> uiItems = <RowItem>[
     description: "Login Page",
     routeName: LoginAnimationPage.routeName,
     buildRoute: (BuildContext context) => LoginAnimationPage(),
+  ),
+  RowItem(
+    name: "Chat Page",
+    description: "Chat Page with Animation",
+    routeName: ChatPage.routeName,
+    buildRoute: (BuildContext context) => ChatPage(),
   )
 ];
 

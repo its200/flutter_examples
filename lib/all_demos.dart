@@ -21,3 +21,4 @@ export 'package:flutter_examples/other/pull_refresh_load_more.dart';
 export 'package:flutter_examples/ui/login_animation_page.dart';
 export 'package:flutter_examples/basic/page_view.dart';
 export 'package:flutter_examples/basic/animation/animation_page.dart';
+export 'package:flutter_examples/ui/chat_page.dart';
